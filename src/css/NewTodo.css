@@ -23,7 +23,7 @@ input{
 input:focus{
     outline: none;
 }
-button{
+.newTodo>button{
     border:none;
     background-color: inherit;
     font-size: 1.75em;
@@ -33,7 +33,7 @@ button{
     cursor: pointer;
     border-radius: 50%;
 }
-button:hover{
+.newTodo>button:hover{
     background: linear-gradient(90deg, rgba(214, 109, 117, 0.2) 0%, rgba(226, 149, 135, 0.12) 100%);
 
 }

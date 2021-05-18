@@ -1,0 +1,18 @@
+.todo-wrapper{
+    width: 100%;
+    position: relative;
+    top: -5%;
+    display: flex;
+    justify-content: center;
+}
+.todo-container{
+    background-color:white;
+    width: 80%;
+    max-width: 450px;
+    box-shadow: -2px 2px 4px 1px rgba(0,0,0,0.25);
+    border-radius: 10px
+}
+.todo-container>div{
+    margin-top: 10px;
+}
+

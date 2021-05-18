@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './NewTodo.css';
-const NewTodo = ()=>{
+import '../css/NewTodo.css';
+const NewTodo = (props)=>{
+    const {onClick:setTodoList} = props
     const [focusedInput,setFocusedInput] = useState(false);
     const [todoContent,setTodoContent] = useState("");
     const newTodoRef = useRef();
@@ -8,14 +9,24 @@ const NewTodo = ()=>{
         document.addEventListener('click',handleDocumentClick);
     },[])
     const handleDocumentClick=(e)=>{
-        setFocusedInput(newTodoRef.current.contains(e.target));
+        setFocusedInput(newTodoRef.current?.contains(e.target));
     }
     const handleInputChange = (e)=>{
         setTodoContent(e.target.value);
     }
     const handleNewTodo = ()=>{
-        console.log(todoContent);
-        setTodoContent("");
+        if(todoContent.trim()){
+            setTodoContent("");
+            setTodoList(prev=>{
+                let updatedTodos = [...prev];
+                updatedTodos.push({
+                    key:Date.now(),
+                    content:todoContent,
+                    completed:false
+                });
+                return updatedTodos;
+            })
+        }
         setFocusedInput(false);
     }
     return (

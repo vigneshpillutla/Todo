@@ -3,7 +3,7 @@
     height:35%;
     background: linear-gradient(90deg, rgba(214, 109, 117, 0.2) 0%, rgba(226, 149, 135, 0.12) 100%),
                 linear-gradient(90deg, rgba(0, 57, 115, 0.2) 0%, rgba(229, 229, 190, 0.2) 100%),
-                url('./images/lighSVG.svg') center center no-repeat ;
+                url('../images/lighSVG.svg') center center no-repeat ;
     background-size: 100% 100%;
     background-position: fixed;
     min-width: 700px;
