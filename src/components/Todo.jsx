@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import '../css/Todo.css'
-import useWindowDimensions from './useWindowDimentions.js'
+import '../css/Todo.css';
 import check from '../images/check.svg'
 const Todo = (props)=>{
-    const {item,handleTodoToggle,removeTodo} = props
+    const {item,handleTodoToggle,removeTodo,width} = props
     const [showButton,setShowButon] = useState(false);
     const gradientBg = 'linear-gradient(90deg, #D66D75 0%, rgba(226, 149, 135, 0.53) 100%)';
-    const {width} = useWindowDimensions()
     return (
         <div className="todo" onMouseEnter={()=>setShowButon(true)} onMouseLeave={()=>setShowButon(false)}>
             <div style={{background:item.completed?gradientBg:'white'}} className="circle" onClick={()=>handleTodoToggle(item)}> 

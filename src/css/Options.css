@@ -1,0 +1,13 @@
+button{
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.options{
+    padding: 0 10px;
+    /* background-color: green; */
+    flex-grow: 3;
+    display: flex;
+    justify-content: center;
+    opacity: 60%;
+}

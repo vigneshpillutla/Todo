@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './Header'
 import DisplayTodo from './DisplayTodo'; 
 function App() {
-  const [todoList,setTodoList] = useState([]);
+  const [todoList,setTodoList] = useState(JSON.parse(localStorage.getItem('todoList')));
+  useEffect(()=>{
+    localStorage.setItem('todoList',JSON.stringify(todoList));
+  },[todoList])
   const handleTodoToggle = (elem)=>{
     const key = elem.key;
     let pos = (todoList.map(item=>item.key)).indexOf(key);

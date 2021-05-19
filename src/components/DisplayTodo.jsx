@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
 import '../css/DisplayTodo.css'
 import Todo from './Todo'
-import Filter from './Filter'
+import DisplayOptions from './DisplayOptions'
+import useWindowDimensions from './useWindowDimentions.js'
+import Options from './Options'
 const DisplayTodo = (props)=>{
     const {handleClearCompleted,list:todoList,handleTodoToggle,removeTodo} = props;
     const [filter,setFilter] = useState('All');
+    const {width} = useWindowDimensions();
     let filteredList = [...todoList];
     let itemsLeft = todoList.filter(item=>!item.completed).length;
     if(filter==='Active'){
@@ -17,10 +20,15 @@ const DisplayTodo = (props)=>{
         <div style={{display:todoList.length?'':'none'}} className="todo-wrapper">
             <div className='todo-container'>
                 {filteredList.map(elem=>{
-                    return <Todo key={elem.key} item = {elem} removeTodo={removeTodo}  handleTodoToggle={handleTodoToggle}/>
+                    return <Todo key={elem.key} item = {elem} removeTodo={removeTodo}  handleTodoToggle={handleTodoToggle} width = {width}/>
                 })}
-                <Filter handleClearCompleted={handleClearCompleted} itemsLeft={itemsLeft} activeFilter={filter} setFilter={setFilter}/>
+                <DisplayOptions width={width} handleClearCompleted={handleClearCompleted} itemsLeft={itemsLeft} activeFilter={filter} setFilter={setFilter}/>
             </div>
+            {width<=450 && 
+                <div className='options-wrapper'>
+                    <Options activeFilter={filter} setFilter={setFilter}/>
+                </div>
+            }
         </div>
     );
 }

@@ -7,7 +7,17 @@ const NewTodo = (props)=>{
     const newTodoRef = useRef();
     useEffect(()=>{
         document.addEventListener('click',handleDocumentClick);
-    },[])
+        document.addEventListener('keyup',handleKeyboardPress);
+        return ()=> {
+            document.removeEventListener('click',handleDocumentClick)
+            document.removeEventListener('keyup',handleKeyboardPress);
+        };
+    })
+    const handleKeyboardPress = (event)=>{
+        if(event.keyCode === 13){
+            handleNewTodo();
+        }
+    }
     const handleDocumentClick=(e)=>{
         setFocusedInput(newTodoRef.current?.contains(e.target));
     }
