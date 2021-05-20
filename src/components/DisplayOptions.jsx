@@ -5,7 +5,7 @@ import {useTheme} from './ThemeProvider'
 const DisplayOptions = (props)=>{
     const {textColor} = useTheme()
     const {handleClearCompleted,itemsLeft,activeFilter,setFilter,width} = props;
-    const itemsLeftString = itemsLeft>1?'items left':'item left'
+    const itemsLeftString = itemsLeft!==1?'items left':'item left'
     return (
         <div className="filters" style={{color:textColor}}>
             <h3 className='items'>{itemsLeft} {itemsLeftString}</h3>

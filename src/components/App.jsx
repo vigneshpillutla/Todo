@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Header from './Header'
 import DisplayTodo from './DisplayTodo'; 
-import {useTheme} from './ThemeProvider';
 function App() {
   const [todoList,setTodoList] = useState(JSON.parse(localStorage.getItem('todoList')));
-  const currentTheme = useTheme();
   useEffect(()=>{
     localStorage.setItem('todoList',JSON.stringify(todoList));
   },[todoList])
