@@ -9,5 +9,5 @@ button{
     flex-grow: 3;
     display: flex;
     justify-content: center;
-    opacity: 60%;
+    opacity: 0.6;
 }
