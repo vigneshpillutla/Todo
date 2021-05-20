@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Header from './Header'
 import DisplayTodo from './DisplayTodo'; 
 function App() {
-  const [todoList,setTodoList] = useState(JSON.parse(localStorage.getItem('todoList')));
+  const [todoList,setTodoList] = useState(JSON.parse(localStorage.getItem('todoList'))??[]);
   useEffect(()=>{
     localStorage.setItem('todoList',JSON.stringify(todoList));
   },[todoList])
   useEffect(()=>{
-    const bgColor = localStorage.getItem('dark')==='false'?'#FFFFFF':'#222831'
+    const bgColor = (localStorage.getItem('dark')??'false')==='false'?'#FFFFFF':'#222831'
     console.log(bgColor);
     document.body.style = `background:${bgColor}`;
   },[])

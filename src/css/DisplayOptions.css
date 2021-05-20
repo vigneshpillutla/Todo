@@ -1,7 +1,7 @@
 .filters>*{
     font-family: 'Nunito';
     font-size: 13px;
-    opacity: 60%;
+    opacity: 0.6;
 }
 .filters{
     display: flex;
