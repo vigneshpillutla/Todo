@@ -1,13 +1,12 @@
 .todo-wrapper{
     width: 100%;
     position: relative;
-    top: -5%;
+    top: -35px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .todo-container{
-    background-color:white;
     width: 80%;
     max-width: 450px;
     box-shadow: -2px 2px 4px 1px rgba(0,0,0,0.25);

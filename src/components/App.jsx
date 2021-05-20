@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Header from './Header'
 import DisplayTodo from './DisplayTodo'; 
+import {useTheme} from './ThemeProvider';
 function App() {
   const [todoList,setTodoList] = useState(JSON.parse(localStorage.getItem('todoList')));
+  const currentTheme = useTheme();
   useEffect(()=>{
     localStorage.setItem('todoList',JSON.stringify(todoList));
   },[todoList])
+  useEffect(()=>{
+    const bgColor = localStorage.getItem('dark')==='false'?'#FFFFFF':'#222831'
+    console.log(bgColor);
+    document.body.style = `background:${bgColor}`;
+  },[])
   const handleTodoToggle = (elem)=>{
     const key = elem.key;
     let pos = (todoList.map(item=>item.key)).indexOf(key);
@@ -32,10 +39,10 @@ function App() {
     setTodoList(updatedTodos)  
   }
   return (
-    <div className="App">
-      <Header onClick={setTodoList}/>
-      <DisplayTodo handleClearCompleted={handleClearCompleted} list = {todoList} handleTodoToggle={handleTodoToggle} removeTodo={removeTodo}/>
-    </div>
+      <div className="App">
+        <Header onClick={setTodoList}/>
+        <DisplayTodo handleClearCompleted={handleClearCompleted} list = {todoList} handleTodoToggle={handleTodoToggle} removeTodo={removeTodo}/>
+      </div>
   );
 }
 

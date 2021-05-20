@@ -2,8 +2,9 @@ html,body{
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    height: 100%;
 }
 #root, .App{
     width: 100vw;
-    height: 100vh;
+    height: 100%;
 }

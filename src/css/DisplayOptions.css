@@ -1,5 +1,4 @@
 .filters>*{
-    /* padding: 2px ; */
     font-family: 'Nunito';
     font-size: 13px;
     opacity: 60%;
@@ -9,19 +8,16 @@
     align-items: center;
 }
 .items{
-    /* background-color: red; */
     flex-grow: 3.5;
     font-weight: lighter;
     text-align: center;
 }
 .options{
     padding: 0 10px;
-    /* background-color: green; */
     flex-grow: 3;
     display: flex;
     justify-content: center;
 }
 .clear{
     flex-grow: 1;
-    /* background-color: blue; */
 }

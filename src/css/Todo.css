@@ -1,5 +1,5 @@
 .todo{
-    background:white;
+    background:inherit;
     height: 3.5em;
     display: flex;
     align-items: center;
@@ -8,8 +8,8 @@
 }
 .circle{
     border-radius: 10px;
-    width: 0.75em;
-    height: 0.75em;
+    width: 1em;
+    height: 1em;
     border:1px solid #CDCDCD;
     margin:3.5%;
     display: flex;
@@ -37,7 +37,7 @@
     cursor: pointer;
     border-radius: 50%;
 }
-img{
-    width: 100%;
-    height: 100%;
+.todo img{
+    width: 80%;
+    height: 80%;
 }

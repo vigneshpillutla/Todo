@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import '../css/NewTodo.css';
+import {useTheme} from './ThemeProvider'
 const NewTodo = (props)=>{
     const {onClick:setTodoList} = props
     const [focusedInput,setFocusedInput] = useState(false);
     const [todoContent,setTodoContent] = useState("");
     const newTodoRef = useRef();
+    const {todoListBg,checkBorder,textColor} = useTheme()
     useEffect(()=>{
         document.addEventListener('click',handleDocumentClick);
         document.addEventListener('keyup',handleKeyboardPress);
@@ -40,9 +42,9 @@ const NewTodo = (props)=>{
         setFocusedInput(false);
     }
     return (
-        <div ref={newTodoRef} className="newTodo">
-            <div></div>
-            <input onChange={handleInputChange} onFocus={()=>setFocusedInput(true)}  className="newTodoText"  type="text" placeholder='Create new todo...'  value={todoContent}/>
+        <div ref={newTodoRef} className="newTodo" style={{background:todoListBg}}>
+            <div style={{border:checkBorder}}></div>
+            <input style={{color:textColor}} onChange={handleInputChange} onFocus={()=>setFocusedInput(true)}  className="newTodoText"  type="text" placeholder='Create new todo...'  value={todoContent}/>
             <button onClick={handleNewTodo} style={{display:focusedInput?"":"none"}}>+</button>
         </div>
     )

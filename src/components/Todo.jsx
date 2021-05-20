@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import '../css/Todo.css';
 import check from '../images/check.svg'
+import {useTheme} from './ThemeProvider'
 const Todo = (props)=>{
     const {item,handleTodoToggle,removeTodo,width} = props
     const [showButton,setShowButon] = useState(false);
-    const gradientBg = 'linear-gradient(90deg, #D66D75 0%, rgba(226, 149, 135, 0.53) 100%)';
+    const {todoListBg,checkedTodoColor,checkBorder,textColor} = useTheme()
     return (
-        <div className="todo" onMouseEnter={()=>setShowButon(true)} onMouseLeave={()=>setShowButon(false)}>
-            <div style={{background:item.completed?gradientBg:'white'}} className="circle" onClick={()=>handleTodoToggle(item)}> 
+        <div className="todo" onMouseEnter={()=>setShowButon(true)} onMouseLeave={()=>setShowButon(false)} style={{color:textColor}}>
+            <div style={{background:item.completed?checkedTodoColor:todoListBg,border:item.completed?'none':checkBorder}} className="circle" onClick={()=>handleTodoToggle(item)}> 
                 <img style={{display:item.completed?'':'none'}} src={check} alt="" />
             </div>
             <div style={{opacity:item.completed?'60%':'100%',textDecoration:item.completed?'line-through':''}}  className="content"><p>{item.content}</p></div>
