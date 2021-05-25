@@ -1,6 +1,6 @@
 import React ,{useState, useContext} from 'react'
-import lightBg from '../images/lightSVG.png'
-import darkBg from '../images/darkSVG.png'
+import lightBg from '../images/lightSVG_compressed.png'
+import darkBg from '../images/darkSVG_compressed.png'
 import sun from '../images/sun.svg'
 import moon from '../images/moon.svg'
 const ThemeContext = React.createContext();
